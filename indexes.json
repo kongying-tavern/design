@@ -1,0 +1,43 @@
+{
+  "packages": {
+    "normalize.css": {
+      "name": "normalize.css",
+      "display": "Normalize CSS",
+      "description": "Kongying Tavern a modern alternative to CSS resets",
+      "addon": true,
+      "dir": "packages\\normalize.css",
+      "docs": "https://kongying-tavern.github.io/normalize.css/README.html"
+    },
+    "prettier-config": {
+      "name": "prettier-config",
+      "display": "Prettier Config",
+      "description": " Prettier config for kongyingTavern Team",
+      "addon": true,
+      "dir": "packages\\prettier-config",
+      "docs": "https://kongying-tavern.github.io/prettier-config/README.html"
+    }
+  },
+  "categories": [],
+  "functions": [
+    {
+      "name": "lib",
+      "package": "normalize.css",
+      "internal": true
+    },
+    {
+      "name": "src",
+      "package": "normalize.css",
+      "internal": true
+    },
+    {
+      "name": "lib",
+      "package": "prettier-config",
+      "internal": true
+    },
+    {
+      "name": "src",
+      "package": "prettier-config",
+      "internal": true
+    }
+  ]
+}

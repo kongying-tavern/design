@@ -1,0 +1,30 @@
+module.exports = {
+  extends: [
+    'stylelint-config-recess-order',
+    'stylelint-config-rational-order',
+    'stylelint-config-prettier',
+  ],
+  plugins: [
+    'stylelint-order',
+    'stylelint-scss',
+    'stylelint-a11y',
+    'stylelint-declaration-block-no-ignored-properties',
+    'stylelint-prettier',
+  ],
+  rules: {
+    'indentation': 2,
+    'no-irregular-whitespace': null,
+    'no-missing-end-of-source-newline': null,
+    'max-nesting-depth': 6,
+    'selector-max-compound-selectors': 6,
+    'comment-empty-line-before': null,
+    'function-name-case': 'lower',
+    'at-rule-no-unknown': null,
+    'no-invalid-double-slash-comments': null,
+    'no-descending-specificity': null,
+    'declaration-empty-line-before': null,
+    'value-keyword-case': null,
+    'plugin/declaration-block-no-ignored-properties': true,
+  },
+  ignoreFiles: ['!./packages/.vitepress/theme/styles/**/*.{css,less,scss}'],
+}

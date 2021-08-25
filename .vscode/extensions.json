@@ -1,0 +1,13 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "davidanson.vscode-markdownlint",
+    "antfu.vite",
+    "humao.rest-client",
+    "vivaxy.vscode-conventional-commits",
+    "davidanson.vscode-markdownlint",
+    "hex-ci.stylelint-plus",
+    "streetsidesoftware.code-spell-checker"
+  ]
+}

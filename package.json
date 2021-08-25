@@ -1,0 +1,226 @@
+{
+  "name": "@design/monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "description": "The design system that powers Kongying Tavern",
+  "bugs": {
+    "url": "https://github.com/kongying-tavern/design/issues"
+  },
+  "repository": "git+https://github.com/kongying-tavern/design.git",
+  "license": "MIT",
+  "author": " (^_^) <jiazengp@gmail.com>",
+  "directories": {
+    "doc": "docs"
+  },
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "build": "cross-env mode=production lerna run build --stream",
+    "build:redirects": "esno scripts/redirects.ts",
+    "commit": "npx git-cz",
+    "changelog": "conventional-changelog -p angular -i CHANGELOG.md -s",
+    "clean": "lerna run clean --stream",
+    "copy": "lerna run copy --stream",
+    "docs": "vitepress dev packages",
+    "docs:serve": "vitepress serve packages",
+    "docs:build": "nr update:full && vitepress build packages && nr build:redirects && esno scripts/post-docs.ts",
+    "dev": "lerna run dev --parallel",
+    "envinfo": "npx envinfo --npmPackages  --system --browsers --binaries --duplicates",
+    "fix-memory-limit": "cross-env LIMIT=4096 increase-memory-limit",
+    "lerna:bootstrap": "lerna bootstrap",
+    "lerna:clean": "lerna clean",
+    "lerna:release": "ts-node -O {\\\"module\\\":\\\"commonjs\\\"} scripts/release",
+    "lint": "yarn lint:prettier --write && yarn lint:eslint --fix && yarn lint:style-fix",
+    "lint:style-check": "stylelint .",
+    "lint:style-fix": "stylelint . --fix",
+    "lint:check": "yarn lint:prettier && yarn lint:eslint",
+    "lint:eslint": "eslint . --ext .js,.ts,.vue",
+    "lint:md": "yarn lint:md-lint && yarn lint:md-remark && yarn lint:md-textlint",
+    "lint:md-lint": "markdownlint **/*.md --ignore **/node_modules/**",
+    "lint:md-remark": "remark --quiet .",
+    "lint:md-textlint": "textlint ./packages/**/*.md",
+    "lint:prettier": "prettier --check .",
+    "packages:bootstrap": "ts-node -O {\\\"module\\\":\\\"commonjs\\\"} scripts/bootstrap.ts",
+    "packages:check-update": "ncu --deep --timeout 600000",
+    "packages:update": "ncu -u --deep --timeout 600000 && yarn install && yarn upgrade",
+    "postinstall": "husky install",
+    "size": " esno scripts/export-size.ts",
+    "test": "jest -i",
+    "update": "esno scripts/update.ts",
+    "update:full": "esno scripts/update.ts && nr update:recent",
+    "update:recent": "esno scripts/recent-updated.ts"
+  },
+  "lint-staged": {
+    "*.vue": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{js,ts}": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{md,json,yml}": [
+      "prettier --write"
+    ],
+    "package.json": [
+      "sort-package-json"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "browserslist": [
+    "last 10 Chrome versions",
+    "last 4 Firefox versions",
+    "last 3 Safari versions",
+    "not Safari 12",
+    "last 4 Edge versions",
+    "not Edge <= 18",
+    "Firefox ESR"
+  ],
+  "prettier": "./packages/prettier-config/lib/",
+  "remarkConfig": {
+    "plugins": [
+      "frontmatter",
+      [
+        "footnotes",
+        {
+          "inlineNotes": true
+        }
+      ],
+      "math",
+      "preset-lint-consistent",
+      "preset-lint-recommended",
+      "preset-lint-markdown-style-guide",
+      [
+        "lint-maximum-line-length",
+        false
+      ],
+      [
+        "lint-list-item-spacing",
+        false
+      ],
+      [
+        "lint-list-item-indent",
+        "space"
+      ],
+      [
+        "lint-emphasis-marker",
+        false
+      ]
+    ]
+  },
+  "devDependencies": {
+    "@antfu/ni": "^0.7.0",
+    "@babel/core": "7.15.0",
+    "@babel/plugin-transform-modules-commonjs": "7.15.0",
+    "@babel/preset-env": "7.15.0",
+    "@commitlint/cli": "13.1.0",
+    "@commitlint/config-conventional": "13.1.0",
+    "@iconify/json": "^1.1.392",
+    "@rollup/plugin-commonjs": "^20.0.0",
+    "@rollup/plugin-json": "4.1.0",
+    "@rollup/plugin-node-resolve": "^13.0.4",
+    "@rollup/plugin-typescript": "8.2.5",
+    "@textlint-rule/textlint-rule-no-unmatched-pair": "1.0.8",
+    "@types/inquirer": "7.3.3",
+    "@types/jest": "26.0.24",
+    "@types/node": "^16.7.1",
+    "@types/semver": "7.3.8",
+    "@typescript-eslint/eslint-plugin": "4.29.0",
+    "@typescript-eslint/parser": "4.29.0",
+    "@vue/eslint-config-prettier": "6.0.0",
+    "@vue/eslint-config-typescript": "7.0.0",
+    "@vuedx/typescript-plugin-vue": "0.7.4",
+    "@vueuse/core": "^6.0.0",
+    "@vueuse/shared": "^6.0.0",
+    "babel-jest": "27.0.6",
+    "concurrently": "6.2.0",
+    "conventional-changelog-cli": "2.1.1",
+    "cpx2": "3.0.0",
+    "cross-env": "7.0.3",
+    "cz-conventional-changelog": "3.3.0",
+    "dayjs": "^1.10.6",
+    "dotenv": "^10.0.0",
+    "esbuild-register": "^3.0.0",
+    "eslint": "7.32.0",
+    "eslint-config-prettier": "8.3.0",
+    "eslint-plugin-jest": "^24.4.0",
+    "eslint-plugin-markdown": "^2.2.0",
+    "eslint-plugin-prettier": "3.4.0",
+    "eslint-plugin-vue": "7.15.1",
+    "esno": "^0.9.1",
+    "export-size": "^0.4.0",
+    "filesize": "^8.0.0",
+    "husky": "7.0.1",
+    "increase-memory-limit": "1.0.7",
+    "inquirer": "8.1.2",
+    "jest": "27.0.6",
+    "lerna": "4.0.0",
+    "lint-staged": "11.1.2",
+    "markdown-table": "^3.0.1",
+    "markdownlint-cli": "0.28.1",
+    "npm-check-updates": "12.0.0-0",
+    "nprogress": "^0.2.0",
+    "postcss": "8.3.6",
+    "postcss-loader": "6.1.1",
+    "postcss-nested": "^5.0.6",
+    "prettier": "2.3.2",
+    "prism-theme-vars": "^0.2.2",
+    "qrcode": "^1.4.4",
+    "remark-cli": "10.0.0",
+    "remark-footnotes": "4.0.0",
+    "remark-frontmatter": "4.0.0",
+    "remark-lint": "8.0.0",
+    "remark-math": "4.0.0",
+    "remark-preset-lint-consistent": "4.0.0",
+    "remark-preset-lint-markdown-style-guide": "4.0.0",
+    "remark-preset-lint-recommended": "5.0.0",
+    "rollup": "2.56.0",
+    "rollup-plugin-copy": "3.4.0",
+    "rollup-plugin-dts": "3.0.2",
+    "rollup-plugin-styles": "3.14.1",
+    "rollup-plugin-terser": "7.0.2",
+    "rollup-plugin-typescript2": "0.30.0",
+    "rollup-plugin-vue": "6.0.0",
+    "sass": "^1.37.5",
+    "semver": "7.3.5",
+    "simple-git": "^2.44.0",
+    "sort-package-json": "1.50.0",
+    "stylelint": "^13.13.1",
+    "stylelint-a11y": "^1.2.3",
+    "stylelint-config-prettier": "^8.0.2",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-recess-order": "^2.4.0",
+    "stylelint-config-standard": "^22.0.0",
+    "stylelint-declaration-block-no-ignored-properties": "^2.4.0",
+    "stylelint-order": "^4.1.0",
+    "stylelint-prettier": "^1.2.0",
+    "stylelint-scss": "^3.20.1",
+    "textlint": "12.0.2",
+    "textlint-filter-rule-allowlist": "4.0.0",
+    "textlint-filter-rule-comments": "1.2.2",
+    "textlint-rule-apostrophe": "2.0.0",
+    "textlint-rule-common-misspellings": "1.0.1",
+    "textlint-rule-en-capitalization": "2.0.3",
+    "textlint-rule-stop-words": "2.0.9",
+    "textlint-rule-terminology": "2.1.5",
+    "textlint-rule-write-good": "2.0.0",
+    "textlint-rule-zh-half-and-full-width-bracket": "1.1.0",
+    "ts-jest": "27.0.4",
+    "ts-node": "10.1.0",
+    "typescript": "4.3.5",
+    "universal-cookie": "^4.0.4",
+    "vite": "^2.5.0",
+    "vite-plugin-components": "^0.13.2",
+    "vite-plugin-icons": "^0.6.5",
+    "vite-plugin-pwa": "^0.11.0",
+    "vite-plugin-windicss": "^0.16.0-beta.23",
+    "vitepress": "^0.16.1",
+    "vue": "^3.2.4",
+    "vue-global-api": "^0.4.1"
+  }
+}

@@ -1,0 +1,253 @@
+root: true
+
+env:
+  node: true
+  es6: true
+
+extends:
+  - plugin:vue/vue3-recommended
+  - eslint:recommended
+  - plugin:prettier/recommended
+  - vue-global-api
+
+plugins:
+  - 'markdown'
+  - 'jest'
+
+ignorePatterns:
+  - '**/dist/**'
+  - '**/lib/**'
+  - '**/node_modules/**'
+  - '.cache/**'
+  - '.temp/**'
+  - 'public/**'
+  - '*.md'
+
+rules:
+  'no-alert':
+    - 'off'
+  '@typescript-eslint/no-var-requires':
+    - 'off'
+  '@typescript-eslint/no-empty-function':
+    - 'off'
+  '@typescript-eslint/no-unused-vars':
+    - 'off'
+  'unicorn/prevent-abbreviations':
+    - 'off'
+  'unicorn/consistent-function-scoping':
+    - 'off'
+  'unicorn/no-null':
+    - 'off'
+  'unicorn/filename-case':
+    - 'off'
+  'react/react-in-jsx-scope':
+    - 'off'
+  'react/no-string-refs':
+    - 'off'
+  'no-new':
+    - 'off'
+  'import/named':
+    - 'off'
+  'react/no-unknown-property':
+    - 'off'
+  'vue/no-deprecated-functional-template':
+    - 'off'
+  'vue/one-component-per-file':
+    - 'off'
+
+overrides:
+  - files:
+      - '*.vue'
+
+    extends:
+      - plugin:@typescript-eslint/eslint-recommended
+      - plugin:@typescript-eslint/recommended
+      - plugin:prettier/recommended
+      - '@vue/typescript/recommended'
+      - '@vue/prettier'
+      - '@vue/prettier/@typescript-eslint'
+
+    plugins:
+      - '@typescript-eslint'
+
+    parser: vue-eslint-parser
+
+    parserOptions:
+      extraFileExtensions:
+        - .vue
+      parser: '@typescript-eslint/parser'
+
+    rules:
+      't@typescript-eslint/explicit-module-boundary-types':
+        - off
+
+      '@typescript-eslint/explicit-function-return-type':
+        - off
+
+      'no-undef':
+        - warn
+
+      '@typescript-eslint/naming-convention':
+        - warn
+        - selector: default
+          format:
+            - camelCase
+          leadingUnderscore: allow
+          trailingUnderscore: allow
+
+        - selector:
+            - variable
+          format:
+            - camelCase
+            - UPPER_CASE
+          leadingUnderscore: allow
+          trailingUnderscore: allow
+
+        - selector:
+            - property
+          format:
+            - camelCase
+            - PascalCase
+          leadingUnderscore: allow
+          trailingUnderscore: allow
+
+        - selector: typeLike
+          format:
+            - PascalCase
+
+      '@typescript-eslint/no-explicit-any':
+        - warn
+        - ignoreRestArgs: true
+
+  - files:
+      - '*.ts'
+
+    extends:
+      - plugin:@typescript-eslint/eslint-recommended
+      - plugin:@typescript-eslint/recommended
+      - plugin:@typescript-eslint/recommended-requiring-type-checking
+      - plugin:prettier/recommended
+
+    plugins:
+      - '@typescript-eslint'
+
+    parser: vue-eslint-parser
+
+    parserOptions:
+      parser: '@typescript-eslint/parser'
+      project:
+        - './tsconfig.json'
+        - './tsconfig.eslint.json'
+
+    rules:
+      '@typescript-eslint/ban-ts-comment':
+        - off
+
+      '@typescript-eslint/explicit-function-return-type':
+        - off
+
+      '@typescript-eslint/no-unsafe-member-access':
+        - off
+
+      '@typescript-eslint/no-unsafe-return':
+        - off
+
+      '@typescript-eslint/no-unsafe-call':
+        - off
+
+      '@typescript-eslint/no-unsafe-assignment':
+        - off
+
+      '@typescript-eslint/restrict-template-expressions':
+        - off
+
+      '@typescript-eslint/require-await':
+        - off
+
+      '@typescript-eslint/no-var-requires':
+        - warn
+
+      '@typescript-eslint/no-floating-promises':
+        - warn
+
+      'no-unused-vars':
+        - error
+        - { varsIgnorePattern: '.*', args: 'none' }
+
+      '@typescript-eslint/no-misused-promises': off
+
+      '@typescript-eslint/naming-convention':
+        - warn
+        - selector: default
+          format:
+            - camelCase
+          leadingUnderscore: allow
+          trailingUnderscore: allow
+
+        - selector:
+            - variable
+          format:
+            - camelCase
+            - PascalCase
+            - UPPER_CASE
+          leadingUnderscore: allow
+          trailingUnderscore: allow
+
+        - selector:
+            - parameter
+          format:
+            - camelCase
+            - PascalCase
+          leadingUnderscore: allow
+          trailingUnderscore: allow
+
+        - selector:
+            - property
+          format:
+            - camelCase
+            - PascalCase
+            - UPPER_CASE
+          leadingUnderscore: allow
+          trailingUnderscore: allow
+
+        - selector: typeLike
+          format:
+            - PascalCase
+
+      '@typescript-eslint/no-explicit-any':
+        - warn
+        - ignoreRestArgs: true
+
+  - files:
+      - '*.d.ts'
+    rules:
+      no-underscore-dangle:
+        - off
+
+  - files:
+      - '**/__tests__/**/*.spec.{j,t}s?(x)'
+
+    env:
+      jest: true
+
+    rules:
+      '@typescript-eslint/no-explicit-any':
+        - off
+      '@typescript-eslint/no-unsafe-call':
+        - off
+      '@typescript-eslint/no-unsafe-assignment':
+        - off
+      '@typescript-eslint/no-unsafe-member-access':
+        - off
+
+  - files:
+      - '*.md'
+    rules:
+      'no-console':
+        - 'off'
+      'no-undef':
+        - 'off'
+      'no-unused-vars':
+        - 'off'
+      '@typescript-eslint/no-unused-vars':
+        - 'off'

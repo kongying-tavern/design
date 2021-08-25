@@ -1,0 +1,27 @@
+{
+  "name": "@kongying-tavern/normalize.css",
+  "version": "1.0.0",
+  "description": "KongyingTavern Team modern alternative to CSS resets",
+  "keywords": [
+    "Kongying-Tavern",
+    "normalize.css"
+  ],
+  "homepage": "https://github.com/kongying-tavern/design",
+  "license": "MIT",
+  "author": "jiazengp <jiazengp@gmail.com>",
+  "main": "lib/normalize.css",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "dev": "sass --watch ./src/index.scss:./lib/normalize.css --debug-info",
+    "build": "sass --style compressed ./src/index.scss:./lib/normalize.css && cpx ./src/*.{scss,sass,less,css} lib"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
