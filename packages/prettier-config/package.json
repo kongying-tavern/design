@@ -1,6 +1,6 @@
 {
   "name": "@kongying-tavern/prettier-config",
-  "version": "1.0.0",
+  "version": "1.0.1-0",
   "description": "Prettier config for kongyingTavern Team",
   "keywords": [
     "prettier-config"
