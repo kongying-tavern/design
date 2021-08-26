@@ -13,7 +13,8 @@
     "doc": "docs"
   },
   "workspaces": [
-    "packages/*"
+    "packages/normalize.css",
+    "packages/prettier-config"
   ],
   "scripts": {
     "build": "cross-env mode=production lerna run build --stream",

@@ -1,22 +1,18 @@
-# Vuepress Cache
+# Vitepress Cache
 .cache/
-# Vuepress Temp
-.temp/
-# Vuepress Output
-dist/
 
-# Node modules
+# Vitepress Temp
+.temp/
+
+# Build Output
+dist/
+lib/
+
+# Node Modules
 node_modules/
 
 # Test Coverage
 coverage/
 
-# Dist files
-packages/*/client/
-packages/*/node/
-packages/theme/layouts/
-packages/theme/styles/
-
-
-# Rollup cache
+# Rollup Cache
 .rollup.cache/
