@@ -3483,10 +3483,17 @@
     "@vueuse/shared" "6.0.0"
     vue-demi "*"
 
-"@vueuse/shared@6.0.0", "@vueuse/shared@^6.0.0":
+"@vueuse/shared@6.0.0":
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-6.0.0.tgz#e6b8804541a1853615db3dd869d07653b244451f"
   integrity sha512-PLjjqL8bxI5q86qk/ifXy572nfQE3rJc1RMem+dKcGayaagMnC4kXHEt64V98DVielSwr2FuYaeFodi4KJrvdg==
+  dependencies:
+    vue-demi "*"
+
+"@vueuse/shared@^6.0.0":
+  version "6.8.0"
+  resolved "https://registry.yarnpkg.com/@vueuse/shared/-/shared-6.8.0.tgz#50713b770941293e557a4eae9424cad2aad44a85"
+  integrity sha512-+YjehQ8Qe4Qgyq8iTToVOzp4sZBAZvScv3AGJSMi6HYbe54+nyjrRfS8DN4fA0eUahyftHKZ00WKgMe7TS5N0w==
   dependencies:
     vue-demi "*"
 
