@@ -1289,9 +1289,9 @@
   integrity sha512-LFelJDOLZ6JHlmlAkgrvmcu4hpNPB91KYcr4f60D/exzU1eNOb4/KCVHIydGHIQFaOacIOD+Xy+B7P1z812cZg==
 
 "@iconify/json@^1.1.392":
-  version "1.1.392"
-  resolved "https://registry.yarnpkg.com/@iconify/json/-/json-1.1.392.tgz#5629f7aa5cd80ebc9c32467ae39c600ad99aec68"
-  integrity sha512-NeEnvIo815auLNL5bX732iafgdbzkDTlWJaad7fz7LWneJlImIuTDvCfybnMdS0g+9mItzfTzgUtHq2oJQqMFw==
+  version "1.1.435"
+  resolved "https://registry.yarnpkg.com/@iconify/json/-/json-1.1.435.tgz#a373ac3e209d471c2773fd5384956b7dc3399137"
+  integrity sha512-ih5tnLNBu+mLVQSKkwhawZSdYhJ84zOSGw2gAojJZcypFmb5aQTzshSx4Lp4r5esz9vq3VORqXZF0EVHRFw5XQ==
 
 "@intlify/core-base@9.1.7":
   version "9.1.7"
