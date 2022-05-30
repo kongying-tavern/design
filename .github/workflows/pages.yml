@@ -50,7 +50,7 @@ jobs:
         run: yarn docs:build
 
       - name: Deploy to GitHub Pages
-        uses: crazy-max/ghaction-github-pages@v2.2.0
+        uses: crazy-max/ghaction-github-pages@v3.0.0
         with:
           repo: /kongying-tavern/kongying-tavern.github.io
           target_branch: main
